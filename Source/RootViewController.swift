@@ -2,6 +2,11 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    var topConstraint: NSLayoutConstraint!
+    var leftConstraint: NSLayoutConstraint!
+    var rightConstraint: NSLayoutConstraint!
+    var bottomConstraint: NSLayoutConstraint!
+    
     private var mainView: UIView?
     private var bottomView: UIView?
     private var leftView: UIView?
@@ -22,10 +27,17 @@ class RootViewController: UIViewController {
         mainView?.trailingAnchor.constraintEqualToAnchor(rightView?.leadingAnchor).active = true
         mainView?.bottomAnchor.constraintEqualToAnchor(bottomView?.topAnchor).active = true
         
-        topView?.heightAnchor.constraintEqualToConstant(64.0).active = true
-        leftView?.widthAnchor.constraintEqualToConstant(300.0).active = true
-        rightView?.widthAnchor.constraintEqualToConstant(240.0).active = true
-        bottomView?.heightAnchor.constraintEqualToConstant(100.0).active = true
+        topConstraint = topView?.heightAnchor.constraintEqualToConstant(64.0)
+        topConstraint.active = true
+        
+        leftConstraint = leftView?.widthAnchor.constraintEqualToConstant(300.0)
+        leftConstraint.active = true
+        
+        rightConstraint = rightView?.widthAnchor.constraintEqualToConstant(240.0)
+        rightConstraint.active = true
+        
+        bottomConstraint = bottomView?.heightAnchor.constraintEqualToConstant(100.0)
+        bottomConstraint.active = true
     }
     
     private func createMainView() -> UIView {
